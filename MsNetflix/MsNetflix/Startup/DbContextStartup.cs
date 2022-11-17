@@ -1,4 +1,7 @@
-﻿namespace Payment_service.Startup;
+﻿using Microsoft.EntityFrameworkCore;
+using Payment_service.Context;
+
+namespace Payment_service.Startup;
 
 public static class DbContextStartup
 {
@@ -7,5 +10,8 @@ public static class DbContextStartup
         services.AddDbContext<PaymentContext>(options =>
             options.UseSqlServer(connectionString)
         );
+
+        return services;
     }
 }
+

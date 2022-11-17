@@ -12,15 +12,15 @@ public class PaymentController : ControllerBase
 {
     private readonly ILogger<PaymentController> _logger;
     private readonly PaymentContext _paymentContext;
-    private readonly RabbitTemplate _rabbitTemplate;
+    //private readonly RabbitTemplate _rabbitTemplate;
 
     public PaymentController(ILogger<PaymentController> logger,
-                             PaymentContext paymentContext,
-                             RabbitTemplate rabbitTemplate)
+                             PaymentContext paymentContext
+                             /*RabbitTemplate rabbitTemplate*/)
     {
         _logger = logger;
         _paymentContext = paymentContext;
-        _rabbitTemplate = rabbitTemplate;
+        //_rabbitTemplate = rabbitTemplate;
     }
 
     /// <summary>
@@ -28,10 +28,10 @@ public class PaymentController : ControllerBase
     /// </summary>
     /// <param name="id">Id de l'utilisateur dont on veut mettre le solde à jour</param>
     /// <param name="sold">Montant à ajouter au solde de l'utilisateur</param>
-    /// <param name="paymentRequest"></param>
+    /// <param name="userRequest"></param>
     /// <returns></returns>
     [HttpPut("{id}, {sold}")]
-    public IActionResult UpdateSoldOfUser([FromRoute] int id, [FromRoute] double sold, PaymentRequest paymentRequest )
+    public IActionResult UpdateSoldOfUser([FromRoute] int id, [FromRoute] double sold, UserRequest userRequest )
     {
         User user = this._paymentContext.Users.First(u => u.Id == id);
 
@@ -42,13 +42,15 @@ public class PaymentController : ControllerBase
         }
 
         user.Sold = sold;
-        user.Firstname = paymentRequest.Firstname;
-        user.Lastname = paymentRequest.Lastname;
-        user.Username = paymentRequest.Username;
-        user.Password = paymentRequest.Password;
-        user.AdminRole = paymentRequest.AdminRole;
+        user.Firstname = userRequest.Firstname;
+        user.Lastname = userRequest.Lastname;
+        user.Username = userRequest.Username;
+        user.Password = userRequest.Password;
+        user.AdminRole = userRequest.AdminRole;
 
         this._paymentContext.SaveChanges();
+
+        // TODO : Historiser les transactions
 
         return Ok(user.Id);
     }
