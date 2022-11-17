@@ -1,5 +1,11 @@
 ﻿namespace Payment_service.Startup;
 
-public class DbContextStartup
+public static class DbContextStartup
 {
+    public static IServiceCollection UseDbContextConfiguration(this IServiceCollection services, string connectionString)
+    {
+        services.AddDbContext<PaymentContext>(options =>
+            options.UseSqlServer(connectionString)
+        );
+    }
 }
