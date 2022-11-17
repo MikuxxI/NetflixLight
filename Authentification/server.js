@@ -26,15 +26,54 @@ const client = new Eureka({
       fetchRegistry: true 
   },
   eureka: {
-      host: '192.168.43.210',
+      host: '10.111.20.244',
       port: 9000
   },
-   });
+});
   
-     client.logger.level('debug');
-     client.start((error) => {
-             console.log(error || 'complete');
-      });
+client.logger.level('debug');
+// client.start((error) => {
+//         console.log(error || 'complete');
+// });
+
+//RABBITMQ
+const amqp = require("amqplib");
+
+var channel, connection;  //global variables
+async function connectQueue() {   
+    try {
+        connection = await amqp.connect("amqp://10.111.20.244:5672");
+        channel    = await connection.createChannel()
+        
+        await channel.assertQueue("test-queue")
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+connectQueue();
+
+async function sendData (data) {
+  // send data to queue
+  await channel.sendToQueue("Login-queue", Buffer.from(JSON.stringify(data)));
+      
+  // close the channel and connection
+  await channel.close();
+  await connection.close(); 
+}
+
+app.get("/api/auth/signin", (req, res) => {
+    
+  // data to be sent
+  const data = {
+      username  : req.body.username,
+      password : req.body.password
+  }
+  sendData(data);  // pass the data to the function we defined
+  console.log("A message is sent to queue")
+  res.send("Message Sent"); //response to the API request
+  
+})
 
 //Using App Express
 var corsOptions = {
