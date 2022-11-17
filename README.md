@@ -13,6 +13,7 @@ BDD_NAME="..."
 BDD_USERNAME="..."
 BDD_PASSWORD="..."
 BDD_DIALECT="mysql"
+NODE_DEBUG=request
 
 ## Installation
 
