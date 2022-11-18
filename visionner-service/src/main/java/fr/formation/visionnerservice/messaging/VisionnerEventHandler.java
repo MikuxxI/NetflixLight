@@ -58,7 +58,6 @@ public class VisionnerEventHandler {
                 Integer newIds[] = visionner.getMoviesId();
                 List<Integer> ids = new ArrayList<>(Arrays.asList(newIds));
                 
-                // newIds[newIds.length + 1] = film.getId();
                 ids.add(evt.getMovieId());
                 Integer newIds2[] = new Integer[ids.size()];
 

@@ -29,7 +29,7 @@ public class visionnerApiController {
         return this.srvVisionner.findOneByUserId(userId);
     }
 
-    @GetMapping("/{userId}/{movieId}")
+    @GetMapping("/visionner/{userId}/{movieId}")
     public boolean selectMovie(@PathVariable int userId, @PathVariable int movieId) {
         Visionner visionner = this.srvVisionner.findOneByUserId(userId);
             
