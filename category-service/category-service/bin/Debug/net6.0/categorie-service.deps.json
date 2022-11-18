@@ -11,8 +11,8 @@
           "Microsoft.EntityFrameworkCore": "7.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.0",
           "Microsoft.Extensions.Http.Polly": "7.0.0",
-          "RabbitMQ.Client": "6.4.0",
-          "Steeltoe.CloudFoundry.ConnectorCore": "2.5.5",
+          "RabbitMQ.Client": "5.1.2",
+          "Steeltoe.Connector.ConnectorCore": "3.2.1",
           "Steeltoe.Discovery.Eureka": "3.2.1",
           "Steeltoe.Messaging.RabbitMQ": "3.2.1",
           "Swashbuckle.AspNetCore": "6.2.3"
@@ -634,42 +634,11 @@
           }
         }
       },
-      "RabbitMQ.Client/6.4.0": {
-        "dependencies": {
-          "System.Memory": "4.5.4",
-          "System.Threading.Channels": "4.7.1"
-        },
+      "RabbitMQ.Client/5.1.2": {
         "runtime": {
           "lib/netstandard2.0/RabbitMQ.Client.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.4.0.0"
-          }
-        }
-      },
-      "Steeltoe.CloudFoundry.ConnectorBase/2.5.5": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
-          "Microsoft.Extensions.Options": "7.0.0",
-          "Steeltoe.Extensions.Configuration.CloudFoundryBase": "2.5.5"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Steeltoe.CloudFoundry.ConnectorBase.dll": {
-            "assemblyVersion": "2.5.5.0",
-            "fileVersion": "2.5.5.0"
-          }
-        }
-      },
-      "Steeltoe.CloudFoundry.ConnectorCore/2.5.5": {
-        "dependencies": {
-          "Microsoft.Extensions.Diagnostics.HealthChecks": "2.2.5",
-          "Steeltoe.CloudFoundry.ConnectorBase": "2.5.5",
-          "Steeltoe.Extensions.Configuration.CloudFoundryCore": "2.5.5"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Steeltoe.CloudFoundry.ConnectorCore.dll": {
-            "assemblyVersion": "2.5.5.0",
-            "fileVersion": "2.5.5.0"
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.2.0"
           }
         }
       },
@@ -769,6 +738,18 @@
           }
         }
       },
+      "Steeltoe.Connector.ConnectorCore/3.2.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "2.2.5",
+          "Steeltoe.Connector.ConnectorBase": "3.2.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Steeltoe.Connector.ConnectorCore.dll": {
+            "assemblyVersion": "3.2.1.0",
+            "fileVersion": "3.2.1.0"
+          }
+        }
+      },
       "Steeltoe.Discovery.Abstractions/3.2.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
@@ -824,32 +805,6 @@
           }
         }
       },
-      "Steeltoe.Extensions.Configuration.CloudFoundryBase/2.5.5": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "6.0.0",
-          "Microsoft.Extensions.Configuration.EnvironmentVariables": "6.0.0",
-          "Microsoft.Extensions.Configuration.Json": "6.0.0",
-          "Steeltoe.Common": "3.2.1"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Steeltoe.Extensions.Configuration.CloudFoundryBase.dll": {
-            "assemblyVersion": "2.5.5.0",
-            "fileVersion": "2.5.5.0"
-          }
-        }
-      },
-      "Steeltoe.Extensions.Configuration.CloudFoundryCore/2.5.5": {
-        "dependencies": {
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0",
-          "Steeltoe.Extensions.Configuration.CloudFoundryBase": "2.5.5"
-        },
-        "runtime": {
-          "lib/netcoreapp3.1/Steeltoe.Extensions.Configuration.CloudFoundryCore.dll": {
-            "assemblyVersion": "2.5.5.0",
-            "fileVersion": "2.5.5.0"
-          }
-        }
-      },
       "Steeltoe.Extensions.Configuration.SpringBootBase/3.2.1": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.CommandLine": "6.0.0",
@@ -891,7 +846,7 @@
         "dependencies": {
           "Microsoft.Extensions.Hosting": "6.0.0",
           "Newtonsoft.Json": "11.0.2",
-          "RabbitMQ.Client": "6.4.0",
+          "RabbitMQ.Client": "5.1.2",
           "Steeltoe.Common.Expression": "3.2.1",
           "Steeltoe.Common.Retry": "3.2.1",
           "Steeltoe.Connector.ConnectorBase": "3.2.1",
@@ -1154,7 +1109,6 @@
           "System.Text.Encodings.Web": "6.0.0"
         }
       },
-      "System.Threading.Channels/4.7.1": {},
       "System.Threading.Tasks/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "5.0.0",
@@ -1617,26 +1571,12 @@
       "path": "polly.extensions.http/3.0.0",
       "hashPath": "polly.extensions.http.3.0.0.nupkg.sha512"
     },
-    "RabbitMQ.Client/6.4.0": {
+    "RabbitMQ.Client/5.1.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1znR1gGU+xYVSpO5z8nQolcUKA/yydnxQn7Ug9+RUXxTSLMm/eE58VKGwahPBjELXvDnX0k/kBrAitFLRjx9LA==",
-      "path": "rabbitmq.client/6.4.0",
-      "hashPath": "rabbitmq.client.6.4.0.nupkg.sha512"
-    },
-    "Steeltoe.CloudFoundry.ConnectorBase/2.5.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-LpqbvlpqUmRvWThXLKwVO5sy3A/KmopsBqmPY1kTLbNCoYPSv/brX3OlFdckjruV9JlN6/MWOdmDyyrQFCExHA==",
-      "path": "steeltoe.cloudfoundry.connectorbase/2.5.5",
-      "hashPath": "steeltoe.cloudfoundry.connectorbase.2.5.5.nupkg.sha512"
-    },
-    "Steeltoe.CloudFoundry.ConnectorCore/2.5.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Xzw7uBZWK6heCIdp5ndWOsFavuM9nJv1tKxFHAlhxq3z/hJDh4Kr2gnaFYHhhAVTUNv4u4fRzCtj2aZmlKWt1Q==",
-      "path": "steeltoe.cloudfoundry.connectorcore/2.5.5",
-      "hashPath": "steeltoe.cloudfoundry.connectorcore.2.5.5.nupkg.sha512"
+      "sha512": "sha512-Xhj+un0pw4N7h37SZWptxl/NEv7f1RLHwZhXjqzkCm3w3IdbFJh+HjVyPaciD848BUYLGoEQzadx90nShsbs4Q==",
+      "path": "rabbitmq.client/5.1.2",
+      "hashPath": "rabbitmq.client.5.1.2.nupkg.sha512"
     },
     "Steeltoe.Common/3.2.1": {
       "type": "package",
@@ -1687,6 +1627,13 @@
       "path": "steeltoe.connector.connectorbase/3.2.1",
       "hashPath": "steeltoe.connector.connectorbase.3.2.1.nupkg.sha512"
     },
+    "Steeltoe.Connector.ConnectorCore/3.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+y0lHY93UYPsKuWnumE4ZjB66IGw0OP+0RewBPUyvPaiK1THdXlIJGrOFl95V+K1o2IPC40PM5SmgaEGpbEe8w==",
+      "path": "steeltoe.connector.connectorcore/3.2.1",
+      "hashPath": "steeltoe.connector.connectorcore.3.2.1.nupkg.sha512"
+    },
     "Steeltoe.Discovery.Abstractions/3.2.1": {
       "type": "package",
       "serviceable": true,
@@ -1714,20 +1661,6 @@
       "sha512": "sha512-dXX6R7m9a6bm1HeKGyx0lGwe2pmdqqMjwN9lQKaYg9hZuldTG8pnuFKIwssDTYPUlIWLfzvJGUI2di0RMgar1g==",
       "path": "steeltoe.extensions.configuration.abstractions/3.2.1",
       "hashPath": "steeltoe.extensions.configuration.abstractions.3.2.1.nupkg.sha512"
-    },
-    "Steeltoe.Extensions.Configuration.CloudFoundryBase/2.5.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ZQ5BW/qHu5tg3GPSgjzcs0g1TPLSFCL9lUIk+pKWTvtDPDZ3G8N+Zk1h8l38q2LRh6QYxr0xgJhCMtPZ7aJmHA==",
-      "path": "steeltoe.extensions.configuration.cloudfoundrybase/2.5.5",
-      "hashPath": "steeltoe.extensions.configuration.cloudfoundrybase.2.5.5.nupkg.sha512"
-    },
-    "Steeltoe.Extensions.Configuration.CloudFoundryCore/2.5.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-4iQHANoHYaKUGvr7FfBUUwwh3QRKscJMOAHBnVlckuU0XHJqGRmYs0AMiteire8WoRu+jvzYlSYBeIFOlDwwQA==",
-      "path": "steeltoe.extensions.configuration.cloudfoundrycore/2.5.5",
-      "hashPath": "steeltoe.extensions.configuration.cloudfoundrycore.2.5.5.nupkg.sha512"
     },
     "Steeltoe.Extensions.Configuration.SpringBootBase/3.2.1": {
       "type": "package",
@@ -1994,13 +1927,6 @@
       "sha512": "sha512-zaJsHfESQvJ11vbXnNlkrR46IaMULk/gHxYsJphzSF+07kTjPHv+Oc14w6QEOfo3Q4hqLJgStUaYB9DBl0TmWg==",
       "path": "system.text.json/6.0.0",
       "hashPath": "system.text.json.6.0.0.nupkg.sha512"
-    },
-    "System.Threading.Channels/4.7.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-6akRtHK/wab3246t4p5v3HQrtQk8LboOt5T4dtpNgsp3zvDeM4/Gx8V12t0h+c/W9/enUrilk8n6EQqdQorZAA==",
-      "path": "system.threading.channels/4.7.1",
-      "hashPath": "system.threading.channels.4.7.1.nupkg.sha512"
     },
     "System.Threading.Tasks/4.3.0": {
       "type": "package",
