@@ -1,9 +1,7 @@
-﻿using Steeltoe.Messaging.RabbitMQ.Attributes;
-using Steeltoe.Messaging.RabbitMQ.Config;
+﻿using user_service.Context;
+using Steeltoe.Messaging.RabbitMQ.Attributes;
 using Steeltoe.Messaging.RabbitMQ.Core;
 using Steeltoe.Messaging.RabbitMQ.Extensions;
-using user_service.Context;
-using user_service.Model;
 
 namespace user_service.Messaging
 {

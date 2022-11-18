@@ -1,13 +1,12 @@
 ﻿using user_service.Context;
 using user_service.Controllers.Request;
 using user_service.Controllers.Response;
-using user_service.Model;
-using Polly;
+using user_service.Models;
 using Microsoft.AspNetCore.Mvc;
+using Polly;
 
 namespace user_service.Controllers
 {
-
     [ApiController]
     [Route("")]
     public class UserApiController : ControllerBase
@@ -15,14 +14,11 @@ namespace user_service.Controllers
         private readonly ILogger<UserApiController> _logger;
         private readonly UserContext _userContext;
 
-
         public UserApiController(ILogger<UserApiController> logger,
-                                        UserContext userContext
-                                        )
+                                     UserContext userContext)
         {
             _logger = logger;
             _userContext = userContext;
-
         }
 
         [HttpGet("{id}")]
@@ -42,14 +38,14 @@ namespace user_service.Controllers
                 Username = user.Username,
                 Password = user.Password,
                 Sold = user.Sold,
-                
+                AdminRole = (bool)user.AdminRole,
             };
         }
-
 
         [HttpPost]
         public async Task<IActionResult> Add(UserRequest userRequest)
         {
+
             User user = new User
             {
                 Firstname = userRequest.Firstname,
@@ -57,12 +53,11 @@ namespace user_service.Controllers
                 Username = userRequest.Username,
                 Password = userRequest.Password,
                 Sold = userRequest.Sold,
-                //Etat = CommentaireEtat.PENDING
+                AdminRole = (bool)userRequest.AdminRole,
             };
 
             this._userContext.Users.Add(user);
             this._userContext.SaveChanges();
-
 
             return Ok(user.Id);
         }
@@ -81,7 +76,8 @@ namespace user_service.Controllers
             user.Lastname = userRequest.Lastname;
             user.Username = userRequest.Username;
             user.Password = userRequest.Password;
-            user.Sold = user.Sold;
+            user.Sold = userRequest.Sold;
+            user.AdminRole = (bool)userRequest.AdminRole;
 
             this._userContext.SaveChanges();
 
@@ -104,6 +100,5 @@ namespace user_service.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
-
     }
 }

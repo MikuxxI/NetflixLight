@@ -6,7 +6,8 @@ namespace user_service.Startup
     {
         public static IHttpClientBuilder UseHttpConfiguration(this IServiceCollection services, string clientName, string url)
         {
-            return services.AddHttpClient(clientName, client => {
+            return services.AddHttpClient(clientName, client =>
+            {
                 client.BaseAddress = new Uri(url);
             })
             .AddRandomLoadBalancer()

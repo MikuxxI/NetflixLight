@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using user_service.Model;
+﻿using user_service.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace user_service.Context
 {

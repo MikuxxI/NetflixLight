@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using user_service.Context;
+﻿using user_service.Context;
+using Microsoft.EntityFrameworkCore;
 namespace user_service.Startup
 {
     public static class DbContextStartup
