@@ -3,6 +3,7 @@ using Steeltoe.Messaging.RabbitMQ.Core;
 using Microsoft.AspNetCore.Mvc;
 using Payment_service.Model;
 using Payment_service.Controllers.Request;
+using Payment_service.Messaging;
 
 namespace Payment_service.Controllers;
 
@@ -12,15 +13,15 @@ public class PaymentController : ControllerBase
 {
     private readonly ILogger<PaymentController> _logger;
     private readonly PaymentContext _paymentContext;
-    //private readonly RabbitTemplate _rabbitTemplate;
+    private readonly RabbitTemplate _rabbitTemplate;
 
     public PaymentController(ILogger<PaymentController> logger,
-                             PaymentContext paymentContext
-                             /*RabbitTemplate rabbitTemplate*/)
+                             PaymentContext paymentContext,
+                             RabbitTemplate rabbitTemplate)
     {
         _logger = logger;
         _paymentContext = paymentContext;
-        //_rabbitTemplate = rabbitTemplate;
+        _rabbitTemplate = rabbitTemplate;
     }
 
     /// <summary>
@@ -49,6 +50,17 @@ public class PaymentController : ControllerBase
         user.AdminRole = userRequest.AdminRole;
 
         this._paymentContext.SaveChanges();
+
+        _rabbitTemplate.ConvertAndSend("ms.payment", "user.update", new UserUpdateCommand
+        {
+            UserId = id,
+            Firstname = user.Firstname,
+            Lastname = user.Lastname,
+            Username = user.Username,
+            Password = user.Password,
+            Sold = sold,
+            AdminRole = user.AdminRole,
+        });
 
         // TODO : Historiser les transactions
 
