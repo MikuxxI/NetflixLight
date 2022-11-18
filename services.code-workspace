@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "visionner-service"
+		},
+		{
+			"path": "film-service"
+		},
+		{
+			"name": "gateway",
+			"path": "gateway"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "interactive"
+	}
+}
