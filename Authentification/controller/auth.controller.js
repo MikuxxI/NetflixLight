@@ -1,10 +1,9 @@
+//REQUIREMENTS
 const db = require("../models");
 const amqp = require("amqplib");
 const config = require("../config/auth.config");
 const User = db.users;
-
 const Op = db.Sequelize.Op;
-
 var jwt = require("jsonwebtoken");
 var crypto = require("crypto");
 var bcrypt = require("bcryptjs");
@@ -28,21 +27,20 @@ exports.signup = (req, res) => {
                 channel.sendToQueue("ms.auth.queu.register", Buffer.from("Création_Nouveau_Compte_OK"));
             })
             .catch(async err => {
-            res.status(500).send({ message: err.message + "signup" });
 
-            //RabbitMQ
-            const connectionDamien = await amqp.connect("amqp://guest:guest@10.111.21.78:5672");
-            const channel = await connectionDamien.createChannel();
-            await channel.assertQueue("Création_Nouveau_Compte_KO");
-            channel.sendToQueue("ms.auth.queu.register", Buffer.from("Création_Nouveau_Compte_KO"));
-            });
+                res.status(500).send({ message: err.message + "signup" });
+
+                //RabbitMQ
+                const connectionDamien = await amqp.connect("amqp://guest:guest@10.111.21.78:5672");
+                const channel = await connectionDamien.createChannel();
+                await channel.assertQueue("Création_Nouveau_Compte_KO");
+                channel.sendToQueue("ms.auth.queu.register", Buffer.from("Création_Nouveau_Compte_KO"));
+                });
 
         } else {
             res.send({ user: user });
         }
-
     });
-    
 };
 
 exports.signin = (req, res) => {

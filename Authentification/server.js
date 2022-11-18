@@ -28,6 +28,7 @@ const client = new Eureka({
     registerWithEureka: true,
     fetchRegistry: true
   },
+  // application server information
   eureka: {
       host: '10.111.21.78',
       serviceUrls: 'http://10.111.21.78:9000/',
