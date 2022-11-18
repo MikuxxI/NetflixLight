@@ -96,3 +96,14 @@ C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\obj\Debug\net6
 C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\obj\Debug\net6.0\Payment-service.pdb
 C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\obj\Debug\net6.0\Payment-service.genruntimeconfig.cache
 C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\obj\Debug\net6.0\ref\Payment-service.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\DnsClient.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\SharpCompress.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\Snappier.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\ZstdSharp.dll
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Global\Dev\Java\Microservices\NetflixLight\MsNetflix\MsNetflix\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll

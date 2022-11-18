@@ -35,13 +35,13 @@ public class PaymentController : ControllerBase
     {
         User user = this._paymentContext.Users.First(u => u.Id == id);
 
-        // Si l'user n'existe pas ou n'à pas été trouvé
+        // Si l'user n'existe pas ou n'à pas été trouvé alors => 404
         if (user == null)
         {
             return StatusCode(StatusCodes.Status404NotFound);
         }
 
-        user.Sold = sold;
+        user.Sold += sold;
         user.Firstname = userRequest.Firstname;
         user.Lastname = userRequest.Lastname;
         user.Username = userRequest.Username;

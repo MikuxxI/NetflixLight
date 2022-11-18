@@ -10,8 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.UseDbContextConfiguration(builder.Configuration.GetConnectionString("PaymentContext"));
 builder.Services.UseEurekaConfiguration();
-//builder.Services.UseHttpConfiguration("user-service", "lb://user-service");
-//builder.Services.UseRabbitConfiguration(builder.Configuration);
+builder.Services.UseHttpConfiguration("user-service", "lb://user-service");
+builder.Services.UseRabbitConfiguration(builder.Configuration);
 
 var app = builder.Build();
 
