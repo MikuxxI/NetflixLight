@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "l8CfGEdZNc2EdoQR0DcEkb/3o/FuzEAgs4/Cwh0cYg1E344HfXsSPs7I2Sa4Z7F2JX1FomgWwYHFdQz0G71cmQ==",
+  "dgSpecHash": "8eGq9V04OQunEcdHR4iBgcrc/kCDV3vo36YPfTeLP3ls05E9w1wYPGegsqTn8Km6ptGJfkatRd/W9qPFlo1ABA==",
   "success": true,
   "projectFilePath": "C:\\Users\\allan\\source\\repos\\ProjetApiMicroService\\NetflixLight\\user-service\\user-service\\user-service.csproj",
   "expectedPackageFiles": [
@@ -69,7 +69,7 @@
     "C:\\Users\\allan\\.nuget\\packages\\polly\\7.2.3\\polly.7.2.3.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\polly.contrib.waitandretry\\1.0.0\\polly.contrib.waitandretry.1.0.0.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\polly.extensions.http\\3.0.0\\polly.extensions.http.3.0.0.nupkg.sha512",
-    "C:\\Users\\allan\\.nuget\\packages\\rabbitmq.client\\6.4.0\\rabbitmq.client.6.4.0.nupkg.sha512",
+    "C:\\Users\\allan\\.nuget\\packages\\rabbitmq.client\\5.1.2\\rabbitmq.client.5.1.2.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\steeltoe.common\\3.2.1\\steeltoe.common.3.2.1.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\steeltoe.common.abstractions\\3.2.1\\steeltoe.common.abstractions.3.2.1.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\steeltoe.common.expression\\3.2.1\\steeltoe.common.expression.3.2.1.nupkg.sha512",
@@ -121,7 +121,6 @@
     "C:\\Users\\allan\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
-    "C:\\Users\\allan\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\allan\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"

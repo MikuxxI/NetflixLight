@@ -43,22 +43,5 @@ namespace user_service.Messaging
                 }
             }
         }
-
-        [RabbitListener(Binding = "userDetailed")]
-        public void on(UserDetailedEvent evt)
-        {
-            RabbitTemplate rabbitTemplate = _services.GetRabbitTemplate();
-
-            using (var scope = _services.CreateScope())
-            {
-                var userContext = scope.ServiceProvider.GetService<UserContext>();
-                User user = userContext.Users.First(c => c.Id == evt.UserId);
-                
-
-               
-
-                userContext.SaveChanges();
-            }
-        }
     }
 }

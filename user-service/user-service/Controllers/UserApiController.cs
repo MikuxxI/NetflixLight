@@ -1,11 +1,8 @@
 ﻿using user_service.Context;
 using user_service.Controllers.Request;
 using user_service.Controllers.Response;
-using user_service.Messaging;
 using user_service.Model;
-using Microsoft.AspNetCore.Mvc.Core;
 using Polly;
-using Steeltoe.Messaging.RabbitMQ.Core;
 using Microsoft.AspNetCore.Mvc;
 
 namespace user_service.Controllers
@@ -17,20 +14,15 @@ namespace user_service.Controllers
     {
         private readonly ILogger<UserApiController> _logger;
         private readonly UserContext _userContext;
-        private readonly IHttpClientFactory _httpClientFactory;
-        private readonly HttpClient _httpClient;
-       // private readonly RabbitTemplate _rabbitTemplate;
+
 
         public UserApiController(ILogger<UserApiController> logger,
-                                        UserContext userContext,
-                                        IHttpClientFactory httpClientFactory
-                                       /* RabbitTemplate rabbitTemplate*/)
+                                        UserContext userContext
+                                        )
         {
             _logger = logger;
             _userContext = userContext;
-            _httpClientFactory = httpClientFactory;
-            _httpClient = httpClientFactory.CreateClient("user-service");
-           // _rabbitTemplate = rabbitTemplate;
+
         }
 
         [HttpGet("{id}")]
@@ -41,12 +33,6 @@ namespace user_service.Controllers
             var fallbackForAnyException = Policy<string>
                 .Handle<Exception>()
                 .FallbackAsync(async (ct) => "- Inconnu -");
-
-            // string produitNom = await _httpClient.GetStringAsync($"/info/{ commentaire.ProduitId }/nom");
-
-            string userName = await fallbackForAnyException.ExecuteAsync(async () => {
-                return await _httpClient.GetStringAsync($"/{user.Id}/nom");
-            });
 
             return new UserResponse
             {
@@ -77,10 +63,6 @@ namespace user_service.Controllers
             this._userContext.Users.Add(user);
             this._userContext.SaveChanges();
 
-          /*  _rabbitTemplate.ConvertAndSend("ms.user", new UserDetails
-            {
-                UserId = user.Id,
-            });*/
 
             return Ok(user.Id);
         }
@@ -123,32 +105,5 @@ namespace user_service.Controllers
             }
         }
 
-        private async Task<Boolean> isAdmin(int userId)
-        {
-            var fallbackForAnyException = Policy<Boolean>
-                .Handle<Exception>()
-                .FallbackAsync(async (ct) => false);
-
-            // return await _httpClient.GetFromJsonAsync<Boolean>($"/info/{ commentaireRequest.ProduitId }/notable");
-
-            return await fallbackForAnyException.ExecuteAsync(async () => {
-                return await _httpClient.GetFromJsonAsync<Boolean>($"/{userId}/admin");
-            });
-        }
-
-        private int validateAdmin(int admin)
-        {
-            if (admin < 0)
-            {
-                return 0;
-            }
-
-            if (admin > 1)
-            {
-                return 1;
-            }
-
-            return admin;
-        }
     }
 }

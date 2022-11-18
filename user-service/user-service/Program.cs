@@ -10,8 +10,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.UseDbContextConfiguration(builder.Configuration.GetConnectionString("UserContext"));
 builder.Services.UseEurekaConfiguration();
-builder.Services.UseHttpConfiguration("user-service", "lb://user-service");
-//builder.Services.UseRabbitConfiguration(builder.Configuration);
+builder.Services.UseRabbitConfiguration(builder.Configuration);
 
 var app = builder.Build();
 
