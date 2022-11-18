@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.UseDbContextConfiguration(builder.Configuration.GetConnectionString("CategoryContext"));
 builder.Services.UseEurekaConfiguration();
+builder.Services.UseRabbitConfiguration(builder.Configuration);
 
 
 var app = builder.Build();
