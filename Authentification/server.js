@@ -43,43 +43,28 @@ client.start((error) => {
 });
 
 //RABBITMQ
-// const amqp = require("amqplib");
+const CONN_URL = 'amqps://ekocwjow:Todj_aar9SDbpLPP_tr0mL4-qTB4gGCQ@rat.rmq2.cloudamqp.com/ekocwjow';
 
-// var channel, connection;  //global variables
-// async function connectQueue() {   
-//     try {
-//         connection = await amqp.connect("amqp://10.111.21.78:5672");
-//         channel    = await connection.createChannel()
-        
-//         await channel.assertQueue("test-queue")
-        
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-// connectQueue();
-
-// async function sendData (data) {
-//   // send data to queue
-//   await channel.sendToQueue("Login-queue", Buffer.from(JSON.stringify(data)));
-      
-//   // close the channel and connection
-//   await channel.close();
-//   await connection.close(); 
-// }
-
-// app.get("/api/auth/signin", (req, res) => {
-    
-//   // data to be sent
-//   const data = {
-//       username  : req.body.username,
-//       password : req.body.password
-//   }
-//   sendData(data);  // pass the data to the function we defined
-//   console.log("A message is sent to queue")
-//   res.send("Message Sent"); //response to the API request
-  
-// })
+const amqp = require("amqplib");
+async function connect() {
+ try {
+   const connection = await amqp.connect("amqps://ekocwjow:Todj_aar9SDbpLPP_tr0mL4-qTB4gGCQ@rat.rmq2.cloudamqp.com/ekocwjow");
+   const connectionDamien = await amqp.connect("amqp://guest:guest@10.111.21.78:5672");
+   
+   const channel = await connectionDamien.createChannel();
+   await channel.assertQueue("Authentification");
+   console.log("finit...");
+   channel.consume("Authentification", message => {
+     const input = JSON.parse(message.content.toString());
+     console.log(`Received Authentification: ${input.number}`);
+     channel.ack(message);
+   });
+   console.log(`Waiting for messages...`);
+ } catch (ex) {
+   console.error(ex);
+ }
+}
+connect();
 
 //Using App Express
 var corsOptions = {
