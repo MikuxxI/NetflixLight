@@ -2,4 +2,5 @@
 Microservices
 
 Dossier film : Fonctionne seul (si on met des catégories en base de données)
-Dossier film-service : Utilise Eureka
+
+Dossier film-service : Utilise Eureka (penser à indiquer la bonne adresse IP)
