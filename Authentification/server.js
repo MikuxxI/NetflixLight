@@ -43,23 +43,11 @@ client.start((error) => {
 });
 
 //RABBITMQ
-const CONN_URL = 'amqps://ekocwjow:Todj_aar9SDbpLPP_tr0mL4-qTB4gGCQ@rat.rmq2.cloudamqp.com/ekocwjow';
-
 const amqp = require("amqplib");
 async function connect() {
  try {
-   const connection = await amqp.connect("amqps://ekocwjow:Todj_aar9SDbpLPP_tr0mL4-qTB4gGCQ@rat.rmq2.cloudamqp.com/ekocwjow");
-   const connectionDamien = await amqp.connect("amqp://guest:guest@10.111.21.78:5672");
-   
+   const connectionDamien = await amqp.connect("amqp://guest:guest@10.111.21.78:5672"); 
    const channel = await connectionDamien.createChannel();
-   await channel.assertQueue("Authentification");
-   console.log("finit...");
-   channel.consume("Authentification", message => {
-     const input = JSON.parse(message.content.toString());
-     console.log(`Received Authentification: ${input.number}`);
-     channel.ack(message);
-   });
-   console.log(`Waiting for messages...`);
  } catch (ex) {
    console.error(ex);
  }
